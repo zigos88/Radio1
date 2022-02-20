@@ -1,10 +1,11 @@
-package ru.netology.domain;
+package ru.netology;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
-    Radio rad = new Radio();
+    Radio rad = new Radio(10);
 
     @Test
     void shouldStation() {
@@ -16,7 +17,7 @@ class RadioTest {
 
     @Test
     void shouldMaxStation() {
-        rad.setCurrentStation(25);
+        rad.setCurrentStation(30);
         int expected = 0;
         int actual = rad.getCurrentStation();
         assertEquals(expected, actual);
@@ -24,7 +25,7 @@ class RadioTest {
 
     @Test
     void shouldMinStation() {
-        rad.setCurrentStation(-10);
+        rad.setCurrentStation(-25);
         int expected = 0;
         int actual = rad.getCurrentStation();
         assertEquals(expected, actual);
@@ -32,9 +33,9 @@ class RadioTest {
 
     @Test
     void shouldNextStation() {
-        rad.setCurrentStation(8);
+        rad.setCurrentStation(6);
         rad.nextStation();
-        int expected = 9;
+        int expected = 7;
         int actual = rad.getCurrentStation();
         assertEquals(expected, actual);
     }
@@ -76,7 +77,7 @@ class RadioTest {
 
     @Test
     void shouldMaxVolume() {
-        rad.setCurrentVolume(57);
+        rad.setCurrentVolume(102);
         int expected = 0;
         int actual = rad.getCurrentVolume();
         assertEquals(expected, actual);
@@ -101,9 +102,9 @@ class RadioTest {
 
     @Test
     void shouldMaxAddVolume() {
-        rad.setCurrentVolume(10);
+        rad.setCurrentVolume(100);
         rad.increaseVolume();
-        int expected = 10;
+        int expected = 100;
         int actual = rad.getCurrentVolume();
         assertEquals(expected, actual);
     }
@@ -126,4 +127,3 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 }
-
